@@ -67,16 +67,16 @@ To run the project, execute the main.py script:
 * Visualization: Generates histograms and paired plots for analysis results.
 
 ### Outputs:
-After running main.py, you will see:
-1.Generated Plots: View saved plots in the plots/ directory to visualize results (e.g., histograms, box plots).
+After running main.py, you will see:  
+1.Generated Plots: View saved plots in the plots/ directory to visualize results (e.g., histograms, box plots).  
 2.Console Output: The script will print t-test results, decision tree accuracy, precision, and recall.
 
 ---
 
 ## Testsing
-Run the tests using pytest:
+Run the tests using pytest:  
 1.Install testing dependencies (if not already installed):
-`pip install pytest pytest-cov`
+`pip install pytest pytest-cov`  
 2.Execute tests:
 `pytest test/`
 
@@ -89,4 +89,3 @@ Run the tests using pytest:
 If you have any questions or need help, feel free to reach out via:  
 Email: [hadasharr@gmail.com]  
  [yotamn2000@gmail.com]  
-GitHub Issues: [GitHub Repository Issues Link](the_link)
