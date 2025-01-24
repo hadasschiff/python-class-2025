@@ -84,7 +84,7 @@ Run the tests using pytest:
 
 ## Contributors
 * Hadas Schiff
-* Yotam Netzer 
+* Yotam Netser 
 
 If you have any questions or need help, feel free to reach out via:  
 Email: [hadasharr@gmail.com]  
