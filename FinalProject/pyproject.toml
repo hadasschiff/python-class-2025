@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68", "setuptools_scm[toml]>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "FinalProject"
+requires-python = ">=3.11"
+version = "1.0"
+description = "A project for analyzing EEG data with visualizations and machine learning."
+dependencies = [ 
+    "jupyter",
+    "scipy>=1.11",
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "statsmodels>=0.14",
+    "seaborn>=0.12",
+    "scikit-learn>=1.2"
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy",
+    "ruff",
+    "pytest",
+    "pytest-cov",
+    "pre-commit",
+    "jupyterlab",
+]
+
+[tool.ruff]
+line-length = 120
+src = ["src", "test"]
+extend-exclude = ["conf.py", "venv/**"]
+
+[tool.mypy]
+plugins = []
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "pandas.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "scipy.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "sklearn.*"
+ignore_missing_imports = true
+
+target-version = "py312"
+lint.select = ["ALL"]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+omit = [
+    "src/__init__.py",
+    "test/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true

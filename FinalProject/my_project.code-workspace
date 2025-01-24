@@ -1,0 +1,57 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"extensions": {
+		"recommendations": [
+			"ms-python.python",
+			"ms-python.vscode-pylance",
+			"donjayamanne.python-environment-manager",
+			"kaih2o.python-resource-monitor",
+			"charliermarsh.ruff",
+			"matangover.mypy"
+		]
+	},
+	"settings": {
+		"python.defaultInterpreterPath": ".venv/Scripts/python.exe",
+		"python.terminal.activateEnvironment": true,
+		"editor.defaultFormatter": "ms-python.python",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "always",
+			"source.fixAll.ruff": "always",
+			"source.fixAll": "always"
+		},
+		"files.exclude": {
+			"**/__pycache__": true,
+			"**/.mypy_cache": true,
+			"**/.pytest_cache": true,
+			"**/FinalProject.egg-info": true,
+			"**/.ruff_cache": true,
+			"**/mypy_cache": true,
+			"**/pytest_cache": true,
+			"**/ruff_cache": true,
+			".tox": true,
+			"archive": true
+		},
+		"python.analysis.extraPaths": [
+			"./src"
+		],
+		"python.testing.pytestEnabled": true,
+		"python.testing.unittestEnabled": true,
+		"python.testing.autoTestDiscoverOnSaveEnabled": true,
+		"python.testing.unittestArgs": [
+			"-v",
+			"-s",
+			"./test"
+		],
+		"python.envFile": "${workspaceFolder}/.env",
+		"python.linting.enabled": true,
+		"python.linting.ruffEnabled": true,
+		"python.linting.mypyEnabled": true,
+		"python.linting.flake8Enabled": false,
+		"python.linting.pylintEnabled": false
+	}
+}
