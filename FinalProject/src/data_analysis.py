@@ -94,7 +94,7 @@ def align_data(not_confusing, confusing):
 
     # We need to make sure the data is arranged right for the test. 
     # If they dont have the same shape - we need to align them.
-    pd.options.mode.chained_assignment = None  # Turn off the SettingWithCopyWarning
+    #pd.options.mode.chained_assignment = None  # Turn off the SettingWithCopyWarning
     if not_confusing.shape != confusing.shape:
         print("Shapes are not aligned. Adjusting the datasets")
         # By the results we see the shapes are not the same - 
@@ -102,7 +102,10 @@ def align_data(not_confusing, confusing):
         # We will drop the rows we dont need.
         # How will we decide? 
         # We want each Student to have the same number of videos they found confusing and not confusing. 
-        # We can check how many each of them have in every dataset and by that drop the rows. 
+        # We can check how many each of them have in every dataset and by that drop the rows.
+        # Copying the datasets to work on.
+        not_confusing = not_confusing.copy()
+        confusing = confusing.copy() 
         # Adding within-group sequence numbers to both data sets.
         not_confusing['_seq'] = not_confusing.groupby('SubjectID').cumcount()
         confusing['_seq'] = confusing.groupby('SubjectID').cumcount()
