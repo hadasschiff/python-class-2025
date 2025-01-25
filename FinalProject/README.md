@@ -41,7 +41,7 @@ FinalProject/
 To set up and run the project locally:
 1. Clone the repository:
 ```
-git clone <repository-url>
+git clone https://github.com/hadasschiff/python-class-2025.git
 cd FinalProject
 ```
 2. Create and activate a virtual environment (recommended):
@@ -87,5 +87,5 @@ Run the tests using pytest:
 * Yotam Netser 
 
 If you have any questions or need help, feel free to reach out via:  
-Email: [hadasharr@gmail.com]  
- [yotamn2000@gmail.com]  
+Email: hadasharr@gmail.com  
+ yotamn2000@gmail.com  
