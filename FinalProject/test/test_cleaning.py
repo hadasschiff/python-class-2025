@@ -4,7 +4,7 @@ import os
 import sys
 from src.data_cleaning import load_and_check_data, clean_and_save_data
 
-class TestDataCleaning(unittest.TestCase):
+class test_data_cleaning(unittest.TestCase):
 
     def setUp(self):
         """

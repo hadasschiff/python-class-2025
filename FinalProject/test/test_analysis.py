@@ -1,26 +1,26 @@
 import unittest
 import pandas as pd
 import os
-from sklearn.metrics import precision_score, accuracy_score, recall_score
 import sys
 from src.data_analysis import load_and_prepare_data,check_normality, align_data, perform_t_tests,train_and_evaluate_decision_tree
 
 
-class TestDataAnalysis(unittest.TestCase):
+class test_data_analysis(unittest.TestCase):
     def setUp(self):
         """
         Setting up the test environment. Creating a sample dataset and saving it to a temporary CSV file.
         """
         # Creating our sample dataset.
         self.sample_data = pd.DataFrame({
-            'VideoID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-            'SubjectID': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120],
-            'predefinedlabel': [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-            'user-definedlabeln': [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
-            'Theta': [100, 300, 500, 700, 900, 1100, 1300, 1500, 1700, 1900, 2100, 2300, 2500, 2700, 2900, 3100, 3300, 3500, 3700, 3900],
-            'Alpha1': [50, 70, 90, 110, 130, 150, 170, 190, 210, 230, 250, 270, 290, 310, 330, 350, 370, 390, 410, 430]
-        })
-        # Saving it to a temporary file.
+        'VideoID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        'SubjectID': [101, 101, 102, 102, 103, 103, 104, 104, 105, 105, 106, 106, 107, 107, 108, 108, 109, 109, 110, 110],
+        'predefinedlabel': [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+        'user-definedlabeln': [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+        'Theta': [100, 300, 500, 700, 900, 1100, 1300, 1500, 1700, 1900, 2100, 2300, 2500, 2700, 2900, 3100, 3300, 3500, 3700, 3900],
+        'Alpha1': [50, 70, 90, 110, 130, 150, 170, 190, 210, 230, 250, 270, 290, 310, 330, 350, 370, 390, 410, 430]
+    })
+
+       # Saving it to a temporary file.
         self.test_file_path = "test_analysis_data.csv"
         self.sample_data.to_csv(self.test_file_path, index=False)
 
@@ -58,24 +58,33 @@ class TestDataAnalysis(unittest.TestCase):
         self.assertIn('Theta', normal_columns)
         self.assertIn('Alpha1', normal_columns)
 
-def test_align_data(self):
-    """
-    Testing the align_data function from data_analysis.py to ensure it aligns the datasets correctly.
-    """
-    eeg_data, not_confusing, confusing = load_and_prepare_data(self.test_file_path, 'predefinedlabel')
+    def test_align_data(self):
+        """
+        Testing the align_data function from data_analysis.py to ensure it aligns the datasets correctly.
+        """
+        eeg_data, not_confusing, confusing = load_and_prepare_data(self.test_file_path, 'predefinedlabel')
 
-    # Align the data
-    not_confusing_aligned, confusing_aligned = align_data(not_confusing, confusing)
+        # Align the data
+        not_confusing_aligned, confusing_aligned = align_data(not_confusing, confusing)
+        print("Not Confusing Aligned:")
+        print(not_confusing_aligned)
 
-    # Verify that the aligned datasets have the same shape.
-    self.assertEqual(not_confusing_aligned.shape, confusing_aligned.shape)
+        print("Confusing Aligned:")
+        print(confusing_aligned)
 
-    # Ensure the alignment preserves data integrity (no missing values or unexpected duplicates)
-    self.assertFalse(not_confusing_aligned.isnull().values.any())
-    self.assertFalse(confusing_aligned.isnull().values.any())
+        print("Mismatched SubjectIDs:")
+        print(not_confusing_aligned['SubjectID'] != confusing_aligned['SubjectID'])
 
-    # Ensure SubjectID alignment between the two datasets
-    self.assertTrue((not_confusing_aligned['SubjectID'] == confusing_aligned['SubjectID']).all())
+
+        # Verify that the aligned datasets have the same shape.
+        self.assertEqual(not_confusing_aligned.shape, confusing_aligned.shape)
+
+        # Ensure the alignment preserves data integrity (no missing values or unexpected duplicates)
+        self.assertFalse(not_confusing_aligned.isnull().values.any())
+        self.assertFalse(confusing_aligned.isnull().values.any())
+
+        # Ensure SubjectID alignment between the two datasets
+        self.assertTrue((not_confusing_aligned['SubjectID'] == confusing_aligned['SubjectID']).all())
 
 
     def test_perform_t_tests(self):

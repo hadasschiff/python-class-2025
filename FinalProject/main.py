@@ -8,7 +8,8 @@ def main():
     # Loading the data and checking for missing and duplicate values.
     eeg_data = load_and_check_data(file_path)
     # Cleaning the data, displaying its overview, counting events, and saving it.
-    clean_data = clean_and_save_data(eeg_data, output_file_path)
+    clean_and_save_data(eeg_data, output_file_path)
+
     clean_file_path = "./clean_eeg_data.csv"
     
     # Pre-defined labels.

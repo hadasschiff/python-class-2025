@@ -7,12 +7,26 @@ We also explored the discrepancies between:
 * Videos classified as confusing by predefined criteria.
 * Videos self-reported as confusing by the students.
 
-### Key Finding:
+### Hypothesis
+This project aims to analyze EEG signals to detect patterns associated with cognitive confusion during educational video viewing. We hypothesize that:
+
+* Distinct EEG Patterns for Confusion: When a participant experiences confusion, specific brainwave frequencies will show distinguishable changes compared to neutral comprehension states.
+* Predefined vs. Self-Reported Confusion: Videos labeled as “confusing” by design will induce EEG activity similar to self-reported confusion, validating the approach.
+
+### Key Finding
 We observed a stronger difference in brain waves patterns when students self-identified videos as confusing compared to predefined classifications.
 Detailed results and visualizations are stored in the `plots/` directory.
 
 ---
+## Dataset
+The EEG dataset used in this project consists of recordings from participants watching educational videos. The dataset includes:
 
+- EEG Signal Data: Raw and preprocessed EEG recordings from 10 participants.
+- Confusion Annotations: Labels from predefined confusing videos and self-reported confusion instances.
+- Metadata: Participant details (age, background) and video timestamps for confusion markers. We did not use this data in our research.  
+📂 Access the Dataset: https://www.kaggle.com/datasets/wanghaohan/confused-eeg
+
+---
 ## Project Structure
 The repository is organized as follows:
 
